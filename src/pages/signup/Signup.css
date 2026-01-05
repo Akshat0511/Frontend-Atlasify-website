@@ -1,0 +1,36 @@
+/* Add this to handle the side-by-side password fields on desktop */
+.input-group-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+.social-signup {
+ gap: 2px;
+}
+
+
+/* Ensure mobile responsiveness for the side-by-side fields */
+@media (max-width: 480px) {
+  .input-group-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+.terms-link {
+  color: var(--accent-cyan);
+  text-decoration: underline;
+  font-size: 0.8rem;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  cursor: pointer;
+  line-height: 1.2;
+}
+
+.checkbox-container input {
+  margin-top: 2px;
+}

@@ -1,0 +1,195 @@
+/* ---------------- CARD BASE ---------------- */
+.resource-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.resource-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--card-accent);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.resource-card:hover {
+  border-color: var(--card-accent);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.resource-card:hover::before {
+  opacity: 1;
+}
+
+/* ---------------- CARD CONTENT ---------------- */
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.card-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  font-size: 1.25rem;
+}
+
+.card-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.card-author {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.card-description {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  flex-grow: 1;
+}
+
+/* ---------------- TAGS ---------------- */
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+
+.tag {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  padding: 2px var(--spacing-sm);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+}
+
+/* ---------------- STATS ---------------- */
+.card-stats {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--border-color);
+}
+
+.stat {
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+}
+
+/* ---------------- LINKS ---------------- */
+.card-link {
+  color: var(--card-accent);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  transition: gap var(--transition-fast);
+}
+
+.card-link:hover {
+  gap: var(--spacing-sm);
+}
+
+/* ---------------- GITHUB ---------------- */
+.github-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+}
+
+/* ---------------- YOUTUBE ---------------- */
+.youtube-thumb {
+  width: 100%;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* ---------------- ROADMAP ---------------- */
+.resource-card.roadmap {
+  padding-left: calc(var(--spacing-xl) + 20px);
+  position: relative;
+}
+
+.resource-card.roadmap::after {
+  content: '';
+  position: absolute;
+  left: 30px;
+  top: 60px;
+  bottom: -20px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--card-accent), transparent);
+}
+
+.resource-card.roadmap:last-child::after {
+  display: none;
+}
+
+/* ---------------- PROJECTS & TOOLS ---------------- */
+.resource-card.projects,
+.resource-card.tools {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.resource-card.projects .card-content,
+.resource-card.tools .card-content {
+  flex: 1;
+}
+
+.resource-card.projects .card-icon,
+.resource-card.tools .card-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+/* ---------------- ARTICLES ---------------- */
+.resource-card.articles h4 {
+  margin: 0 0 var(--spacing-xs) 0;
+}
+
+.resource-card.articles .card-author {
+  margin-bottom: var(--spacing-xs);
+}
+
+.resource-card.articles .card-description {
+  margin-bottom: var(--spacing-sm);
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 768px) {
+  .resource-card.projects,
+  .resource-card.tools,
+  .resource-card.github,
+  .resource-card.youtube,
+  .resource-card.articles,
+  .resource-card.roadmap {
+    width: 100%;
+  }
+}
