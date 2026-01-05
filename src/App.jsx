@@ -10,7 +10,7 @@ import EduChatbot from "./components/EduChatbot";
 
 function App() {
   return (
-    <Router>
+
       <Routes>
         {/* Public Routes */}
         <Route path="/first" element={<First />} />
@@ -47,7 +47,7 @@ function App() {
           }
         />
       </Routes>
-    </Router>
+   
   );
 }
 
