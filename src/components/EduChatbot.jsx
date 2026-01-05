@@ -27,11 +27,10 @@ export default function EduChatbot() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             message: userMsg.text,
-         history: messages.map((m) => ({
-  role: m.role === "assistant" ? "model" : "user",
-  parts: [{ text: m.text }],
-})),
-
+            history: messages.map((m) => ({
+              role: m.role,
+              parts: [{ text: m.text }],
+            })),
           }),
         }
       );
